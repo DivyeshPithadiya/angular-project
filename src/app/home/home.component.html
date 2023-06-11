@@ -1,0 +1,24 @@
+<h2 class="center">student details</h2>
+
+<table class="table table-primary">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Surname</th>
+        <th scope="col">Email</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let student of students">
+        <tr>
+            <td>{{student.id}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.surname}}</td>
+            <td>{{student.email}}</td>
+            <td><button (click)="update(student)" class="btn btn-primary">Edit</button></td>
+            <td><button (click)="delete(student.id)" class="btn btn-danger">Delete</button></td>
+        </tr>
+    </tbody>
+  </table>

@@ -1,0 +1,20 @@
+<h2 class="center">Update student</h2>
+
+<form class="m-4" [formGroup]="updateForm" (ngSubmit)="submit()">
+    <div class="mb-3">
+      <label class="form-label">Name</label>
+      <input formControlName="name" type="text" class="form-control" aria-describedby="emailHelp">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Surname</label>
+        <input formControlName="surname" type="text" class="form-control" aria-describedby="emailHelp">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input formControlName="email" type="email" class="form-control" aria-describedby="emailHelp">
+      </div>
+   
+    <button type="submit" class="btn btn-warning">Submit</button>
+  </form>

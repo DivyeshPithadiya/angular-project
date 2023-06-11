@@ -1,0 +1,65 @@
+<h2 class="center">Add student</h2>
+
+<form class="m-4" [formGroup]="regForm" (ngSubmit)="submit()">
+  <div class="mb-3">
+    <label class="form-label">Name</label>
+    <input formControlName="name" type="text" class="form-control" aria-describedby="emailHelp">
+
+    <!-- <small *ngIf="regForm.get('name')?.invalid && regForm.get('name')?.touched" class="text-danger">Name is required!</small> -->
+
+    <div *ngIf="regForm.get('name')?.invalid && regForm.get('name')?.touched">
+      <small class="text-danger" *ngIf="regForm.get('name')?.hasError('required')">Name is required!</small>
+      <small class="text-danger" *ngIf="regForm.get('name')?.hasError('minlength')">Name is too short!</small>
+      <small class="text-danger" *ngIf="regForm.get('name')?.hasError('spam')">Name is spam, please enter different
+        name!</small>
+    </div>
+
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Surname</label>
+    <input formControlName="surname" type="text" class="form-control" aria-describedby="emailHelp">
+
+    <div *ngIf="regForm.get('surname')?.invalid && regForm.get('surname')?.touched">
+      <small class="text-danger" *ngIf="regForm.get('surname')?.hasError('required')">Surname is required!</small>
+      <small class="text-danger" *ngIf="regForm.get('surname')?.hasError('minlength')">Surname is too short!</small>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Email</label>
+    <input formControlName="email" type="email" class="form-control" aria-describedby="emailHelp">
+
+    <div *ngIf="regForm.get('email')?.invalid && regForm.get('email')?.touched">
+      <small class="text-danger" *ngIf="regForm.get('email')?.hasError('required')">Email is required!</small>
+      <small class="text-danger" *ngIf="regForm.get('email')?.hasError('email')">Email is invalid!</small>
+
+    </div>
+  </div>
+
+  <!-- <div formGroupName="address">
+
+      <div class="mb-3">
+        <label class="form-label">Street</label>
+        <input formControlName="street" type="text" class="form-control" aria-describedby="emailHelp">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">State</label>
+        <input formControlName="state" type="text" class="form-control" aria-describedby="emailHelp">
+      </div>
+
+    <div class="mb-3">
+      <label class="form-label">Country</label>
+      <input formControlName="country" type="text" class="form-control" aria-describedby="emailHelp">
+    </div>
+    
+    </div> -->
+
+  <!-- {{regForm.value | json}} -->
+  <button
+    [class.disabled]="!(regForm.get('name')?.valid && regForm.get('surname')?.valid && regForm.get('email')?.valid)"
+    type="submit" class="btn btn-warning">
+    Submit
+  </button>
+</form>
